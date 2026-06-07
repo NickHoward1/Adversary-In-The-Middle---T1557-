@@ -1,4 +1,4 @@
-<h1>Man In the Middle</h1>
+<h1>Man In the Middle (ARP Spoofing)</h1>
 
 <h2>Objective</h2>
 
@@ -57,4 +57,13 @@ Filter1:
 <h2>Lessons Learned</h2>
 
 <h2>Indicators of attack</h2> 
+
+We can look for the following key indicators while investigating the logs or network traffic for a potential Man-in-the-Middle attack using ARP spoofing.
+
+Duplicate MAC-to-IP Mappings: Multiple MAC addresses claiming the same IP address. Indicates impersonation.<br>
+Unsolicited ARP Replies: High number of ARP replies without matching requests ("gratuitous ARP").<br>
+Abnormal ARP Traffic Volume: A Large number of ARP packets in short intervals.<br>
+Unusual Traffic Routing: Traffic rerouted through the attacker’s MAC.<br>
+Gateway Redirection Patterns: Multiple destination MACs for the same gateway IP.<br>
+ARP Probe / Reply Loops: Many ARP requests with Who has 192.168.1.x? Tell 192.168.1.y patterns.<br>
 
