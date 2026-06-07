@@ -34,9 +34,7 @@ Filter8:`arp.duplicate-address-detected || arp.duplicate-address-frame` This fil
 
 
 
-<img src= "" width="300" height="300"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-<img src= "" width="300" height="300"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src= "" width="300" height="300"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src= "https://github.com/NickHoward1/Adversary-In-The-Middle---T1557-/blob/f397d5182cd3314824a75400079e77128b274676/Screenshot%202026-06-07%20at%2015.55.31.png" width="300" height="300"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src= "https://github.com/NickHoward1/Adversary-In-The-Middle---T1557-/blob/f397d5182cd3314824a75400079e77128b274676/Screenshot%202026-06-07%20at%2015.55.31.png" width="300" height="300"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src= "https://github.com/NickHoward1/Adversary-In-The-Middle---T1557-/blob/f397d5182cd3314824a75400079e77128b274676/Screenshot%202026-06-07%20at%2015.55.31.png" width="300" height="300"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 <h2>Findings</h2>
 
