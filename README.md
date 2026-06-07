@@ -15,24 +15,26 @@ SSL Stripping (credential capture).<br>
 
 <h2>Tools Used</h2>
 <ul>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
+  <li>Wireshark</li>
+  <li>PCAPs for analysis</li>
 </ul>
 
 <h2>Investigation Process</h2>
 
-Step 1 - 
+Step 1 - Use Wireshark to look for IoC's for potential ARP spoofing
 
-Filter1:
+Filter1:`arp`This filter will show requests and replies (who-has and is-at) pointing to both ARP requests and responses. This helps to see and examine results for any abnormal and repeated requests or responses. (Request)
+Filter2:`arp.opcode == 1` This shows all the ARP requests captured from different hosts.(Request)
+Filter3:`arp.opcode == 2` Forged ARP poisoning typically uses unsolicited is-at replies (gratuitous/unasked replies). These are strong indicators. (Response)
+Filter4:`arp.isgratuitous` A suspicious host sends many unsolicited (gratuitous) ARP replies, especially to multiple destinations. Repeated gratuitous ARPs can indicate an attacker maintaining their poison state.(Response) 
+Filter5:`arp && arp.src.proto_ipv4 == 192.168.10.1 && eth.src == 02:aa:bb:cc:00:01` This filter helps to examine the ARP traffic associated with the gateway. 
+Filter6:``arp.opcode ==2 && _ws.col.info contains "192.168.10.1 is at"` This filter has two parts. The first part focuses on the ARP responses and the second part _ws.col.info contains "192.168.10.1 is at" filters on the content shown in the information column. This filters out the ARP responses, which are pointing the Gateway's IP 192.168.10.1 to the MAC address. But if we look closely, we can see that the attacker uses ARP spoofing to tell the IP to its MAC address. We can also use this `filter arp.opcode == 2 && arp.src.proto_ipv4 == 192.168.10.1`, which shows the same result.
+Filter7:`arp.opcode == 2 && arp.src.proto_ipv4 == 192.168.10.1 && eth.src == 02:fe[REDACTED]` this filter narrows down on the attacker's MAC address that has associated itself with the Gateway's IP address.
+Filter8:`arp.duplicate-address-detected || arp.duplicate-address-frame` This filter checks and confirms for duplicate MAC address mappings to a single IP address. 
+
 
 
 <img src= "" width="300" height="300"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-Step 2 - 
-
-Filter1: 
 
 <img src= "" width="300" height="300"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src= "" width="300" height="300"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
