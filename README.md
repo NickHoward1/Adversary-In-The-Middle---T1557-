@@ -34,7 +34,7 @@ Filter8:`arp.duplicate-address-detected || arp.duplicate-address-frame` This fil
 
 
 
-<img src= "https://github.com/NickHoward1/Adversary-In-The-Middle---T1557-/blob/f397d5182cd3314824a75400079e77128b274676/Screenshot%202026-06-07%20at%2015.55.31.png" width="300" height="300"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src= "https://github.com/NickHoward1/Adversary-In-The-Middle---T1557-/blob/c92646cfab85471fb06148d9510a6b0d6730e7f9/Screenshot%202026-06-07%20at%2016.01.55.png" width="300" height="300"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src= "" width="300" height="300"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src= "https://github.com/NickHoward1/Adversary-In-The-Middle---T1557-/blob/f397d5182cd3314824a75400079e77128b274676/Screenshot%202026-06-07%20at%2015.55.31.png" width="300" height="300"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src= "https://github.com/NickHoward1/Adversary-In-The-Middle---T1557-/blob/c92646cfab85471fb06148d9510a6b0d6730e7f9/Screenshot%202026-06-07%20at%2016.01.55.png" width="300" height="300"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src= "https://github.com/NickHoward1/Adversary-In-The-Middle---T1557-/blob/b89c375dc8e84ba3fe75c2d467b478c7cbc001bf/Screenshot%202026-06-07%20at%2016.23.49.png" width="300" height="300"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 <h2>Findings</h2>
 
