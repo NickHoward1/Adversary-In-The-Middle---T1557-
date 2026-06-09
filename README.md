@@ -21,7 +21,7 @@ SSL Stripping (credential capture).<br>
 
 <h2>Investigation Process</h2>
 
-Step 1 - Use Wireshark to look for IoC's for potential ARP spoofing
+<b>Step 1 - Use Wireshark to look for IoC's for potential ARP spoofing</b>
 
 <b>Filter1:</b>`arp`This filter will show requests and replies (who-has and is-at) pointing to both ARP requests and responses. This helps to see and examine results for any abnormal and repeated requests or responses. (Request)<br>
 <b>Filter2:</b>`arp.opcode == 1` This shows all the ARP requests captured from different hosts.(Request)<br>
@@ -107,7 +107,7 @@ Step 1 - Analyse the PCAPs and looks for anomolies in Wireshark
 <b>Filter6:</b>  filter on the DNS request for the domain found `dns.flags.response == 1 && ip.src == 8.8.8.8 && dns.qry.name == "corp-login.acme-corp.local"` everything looks normal, see screenshot 4<br>
 <b>Filter7:</b> DNS responses other than the DNS Server. `dns.flags.response == 1 && ip.src != 8.8.8.8 && dns.qry.name == "corp-login.acme-corp.local"` The last screenshot show DNS spoofing, It shows a system within the network acts as a rogue DNS server, sending spoofed DNS responses.
 
-<img src= "https://github.com/NickHoward1/Adversary-In-The-Middle---T1557-/blob/991845a68c22c07a0287321c99a96bf6437e643e/Screenshot%202026-06-09%20at%2019.26.29.png" width="300" height="300"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp <img src= "https://github.com/NickHoward1/Adversary-In-The-Middle---T1557-/blob/725d0ea380412673a34c926dfa18e82bb839dc5a/Screenshot%202026-06-09%20at%2019.31.08.png" width="300" height="300"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp <img src= "https://github.com/NickHoward1/Adversary-In-The-Middle---T1557-/blob/de373767f75085eb5a4d6901450665dcd94fe030/Screenshot%202026-06-09%20at%2019.39.48.png" width="300" height="300"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp <img src= "https://github.com/NickHoward1/Adversary-In-The-Middle---T1557-/blob/c74e6bf14ff51f86fd573f8f5b96b0d7220f1f9f/Screenshot%202026-06-09%20at%2019.47.34.png" width="300" height="300"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp <img src= "https://github.com/NickHoward1/Adversary-In-The-Middle---T1557-/blob/322db79a1b4fe7910dca0079d86f6a5d0a51ea32/Screenshot%202026-06-09%20at%2020.12.42.png" width="300" height="300"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp
+<img src= "https://github.com/NickHoward1/Adversary-In-The-Middle---T1557-/blob/991845a68c22c07a0287321c99a96bf6437e643e/Screenshot%202026-06-09%20at%2019.26.29.png" width="300" height="300"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src= "https://github.com/NickHoward1/Adversary-In-The-Middle---T1557-/blob/725d0ea380412673a34c926dfa18e82bb839dc5a/Screenshot%202026-06-09%20at%2019.31.08.png" width="300" height="300"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src= "https://github.com/NickHoward1/Adversary-In-The-Middle---T1557-/blob/de373767f75085eb5a4d6901450665dcd94fe030/Screenshot%202026-06-09%20at%2019.39.48.png" width="300" height="300"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src= "https://github.com/NickHoward1/Adversary-In-The-Middle---T1557-/blob/c74e6bf14ff51f86fd573f8f5b96b0d7220f1f9f/Screenshot%202026-06-09%20at%2019.47.34.png" width="300" height="300"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src= "https://github.com/NickHoward1/Adversary-In-The-Middle---T1557-/blob/322db79a1b4fe7910dca0079d86f6a5d0a51ea32/Screenshot%202026-06-09%20at%2020.12.42.png" width="300" height="300"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp
 
 
 <h2>Findings</h2>
