@@ -108,7 +108,7 @@ Step 1 - Analyse the PCAPs and looks for anomolies in Wireshark
 <b>Filter6:</b>  filter on the DNS request for the domain found `dns.flags.response == 1 && ip.src == 8.8.8.8 && dns.qry.name == "corp-login.acme-corp.local"` everything looks normal, see screenshot 4 
 <b>Filter7:</b> DNS responses other than the DNS Server. `dns.flags.response == 1 && ip.src != 8.8.8.8 && dns.qry.name == "corp-login.acme-corp.local"` The last screenshot show DNS spoofing, It shows a system within the network acts as a rogue DNS server, sending spoofed DNS responses.
 
-<img src= "" width="300" height="300"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp<img src= "" width="300" height="300"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp<img src= "" width="300" height="300"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp
+<img src= "https://github.com/NickHoward1/Adversary-In-The-Middle---T1557-/blob/991845a68c22c07a0287321c99a96bf6437e643e/Screenshot%202026-06-09%20at%2019.26.29.png" width="300" height="300"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp<img src= "" width="300" height="300"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp<img src= "" width="300" height="300"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp
 
 <h2>Findings</h2>
 
