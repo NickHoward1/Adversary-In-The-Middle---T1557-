@@ -75,7 +75,7 @@ Gateway Redirection Patterns: Multiple destination MACs for the same gateway IP.
 ARP Probe / Reply Loops: Many ARP requests with Who has 192.168.1.x? Tell 192.168.1.y patterns.<br>
 
 
-<h1>Man In the Middle (DNS Spoofing)</h1>
+<h1>Man In the Middle (ARP Spoofing)</h1>
 
 <h2>Objective</h2>
 
