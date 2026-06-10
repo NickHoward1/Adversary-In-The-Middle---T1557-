@@ -144,3 +144,24 @@ Suspiciously short TTL (Time-To-Live) values: Attackers use very low TTLs (1 - 3
 Unsolicited DNS responses: A DNS reply appears without a corresponding DNS request from the victim.<br>
 
 
+<h1>Man In the Middle (SSL Stripping)</h1>
+
+<b>How It Works</b>
+The victim initiates an HTTPS request to a website.<br>
+The attacker intercepts the request using ARP spoofing or a rogue access point.<br>
+The attacker connects to the website over HTTPS but relays the response to the victim through HTTP.<br>
+The victim unknowingly interacts over HTTP, exposing sensitive data in plaintext.<br>
+
+<b>Indicators of SSL stripping</b>
+Initial Request vs. Response: The user's initial request may be for HTTPS (port 443), but the subsequent packets immediately shift to unencrypted HTTP (port 80) for the same domain.<br>
+Redirects/Link Rewriting: Monitoring for redirects (HTTP Status Codes 301, 302) that persistently direct an HTTPS request to an HTTP resource.<br>
+Certificate Errors: Although the attacker usually tries to hide this, the initial TLS/SSL Handshake may fail or display a self-signed certificate if the attacker uses a more directproxying technique.<br>
+
+<b>Filter1:</b> `tls || ssl` Breaks down the SSL requests and notice abnormal volumes or patterns.,<br>
+<b>Filter2:</b> `tls.handshake.type == 1 && tls.handshake.extensions_server_name == "corp-login.acme-corp.local"` This filters shows the established TLS handshakes to our server, which proves the site normally uses TLS for communication.<br>
+<b>Filter3:</b>  `dns.flags.response == 1 && ip.src == 192.168.10.55 && dns.qry.name == "corp-login.acme-corp.local"`  SSL stripping is done after the attacker has successfully performed DNS spoofing, sending the victim to the attacker's IP. In the previous task, we identified the attacker's IP address performing the DNS spoofing.<br>
+<b>Filter4:</b> Verify TLS disappears; `http && ip.src == 192.168.10.10 && ip.dst == 192.168.10.55` <b>Note:</b> One of the main indicators of SSL stripping is that, after the spoof, the domain no longer performs TLS handshakes to the legitimate server, which validates the absence of TLS traffic from the victim to the real server.
+
+
+
+<img src= "https://github.com/NickHoward1/Adversary-In-The-Middle---T1557-/blob/991845a68c22c07a0287321c99a96bf6437e643e/Screenshot%202026-06-09%20at%2019.26.29.png" width="300" height="300"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src= "https://github.com/NickHoward1/Adversary-In-The-Middle---T1557-/blob/991845a68c22c07a0287321c99a96bf6437e643e/Screenshot%202026-06-09%20at%2019.26.29.png" width="300" height="300"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src= "https://github.com/NickHoward1/Adversary-In-The-Middle---T1557-/blob/991845a68c22c07a0287321c99a96bf6437e643e/Screenshot%202026-06-09%20at%2019.26.29.png" width="300" height="300"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src= "https://github.com/NickHoward1/Adversary-In-The-Middle---T1557-/blob/991845a68c22c07a0287321c99a96bf6437e643e/Screenshot%202026-06-09%20at%2019.26.29.png" width="300" height="300"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
